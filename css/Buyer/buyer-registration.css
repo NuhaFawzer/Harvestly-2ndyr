@@ -1,0 +1,1508 @@
+/* =====================================================
+   HARVESTLY BUYER REGISTRATION
+   PURE CSS
+   NO TAILWIND
+   NO BOOTSTRAP
+   ===================================================== */
+
+:root {
+
+    --primary: #012c12;
+    --primary-container: #1a4326;
+
+    --secondary: #006d3f;
+    --secondary-container: #4bfda2;
+    --secondary-fixed: #57ffa7;
+
+    --surface: #f8faf8;
+    --surface-low: #f2f4f2;
+    --surface-container: #eceeec;
+    --surface-high: #e6e9e7;
+    --surface-white: #ffffff;
+
+    --text: #191c1b;
+    --text-secondary: #424941;
+
+    --outline: #727971;
+    --outline-variant: #c1c9bf;
+
+    --error: #ba1a1a;
+
+    --margin-mobile: 16px;
+    --margin-desktop: 64px;
+
+    --shadow:
+        0 10px 25px -5px
+        rgba(1,44,18,.05),
+        0 8px 10px -6px
+        rgba(1,44,18,.01);
+}
+
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    -webkit-font-smoothing:
+        antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.material-symbols-outlined {
+
+    font-family:
+        "Material Symbols Outlined";
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    display: inline-block;
+}
+
+
+/* =====================================================
+   NAVBAR
+   ===================================================== */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    width: 100%;
+
+    background:
+        rgba(248,250,248,.82);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(1,44,18,.05);
+}
+
+
+.navbar-container {
+
+    width: 100%;
+
+    max-width: 1280px;
+
+    min-height: 72px;
+
+    margin: auto;
+
+    padding:
+        16px
+        var(--margin-desktop);
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        var(--primary);
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+.logo
+.material-symbols-outlined {
+
+    color:
+        var(--secondary);
+
+    font-size: 32px;
+}
+
+
+/* =====================================================
+   MAIN
+   ===================================================== */
+
+.main-container {
+
+    width: 100%;
+
+    max-width: 1440px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: stretch;
+}
+
+
+/* =====================================================
+   LEFT IMAGE
+   ===================================================== */
+
+.image-section {
+
+    position: relative;
+
+    width: 50%;
+
+    min-height: 600px;
+
+    overflow: hidden;
+}
+
+
+.main-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius:
+        0
+        0
+        40px
+        0;
+}
+
+
+.image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    padding:
+        var(--margin-desktop);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    border-radius:
+        0
+        0
+        40px
+        0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.60),
+            rgba(0,0,0,0)
+        );
+
+    color: white;
+}
+
+
+.image-overlay h2 {
+
+    margin: 0 0 16px;
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 32px;
+
+    line-height: 40px;
+
+    font-weight: 600;
+}
+
+
+.image-overlay p {
+
+    max-width: 620px;
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.90);
+
+    font-size: 18px;
+
+    line-height: 28px;
+}
+
+
+/* =====================================================
+   MOBILE IMAGE
+   ===================================================== */
+
+.mobile-image-section {
+
+    display: none;
+}
+
+
+/* =====================================================
+   FORM SECTION
+   ===================================================== */
+
+.form-section {
+
+    width: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        var(--margin-desktop);
+}
+
+
+/* =====================================================
+   REGISTRATION CARD
+   ===================================================== */
+
+.registration-card {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    padding: 48px;
+
+    background:
+        var(--surface-white);
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.form-header {
+
+    text-align: center;
+
+    margin-bottom: 24px;
+}
+
+
+.form-header h1 {
+
+    margin: 0 0 8px;
+
+    color:
+        var(--primary);
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 32px;
+
+    line-height: 40px;
+
+    font-weight: 600;
+}
+
+
+.form-header p {
+
+    margin: 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 16px;
+
+    line-height: 24px;
+}
+
+
+/* =====================================================
+   PHP MESSAGE
+   ===================================================== */
+
+.php-message {
+
+    margin-bottom: 20px;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.php-message.error {
+
+    background:
+        #ffdad6;
+
+    color:
+        var(--error);
+}
+
+
+.php-message.success {
+
+    background:
+        #cfe9d6;
+
+    color:
+        var(--secondary);
+}
+
+
+/* =====================================================
+   FORM GROUP
+   ===================================================== */
+
+.form-group {
+
+    margin-bottom: 16px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--text);
+
+    font-size: 14px;
+
+    line-height: 16px;
+
+    letter-spacing:
+        .05em;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   INPUT
+   ===================================================== */
+
+.input-wrapper {
+
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-wrapper >
+.material-symbols-outlined {
+
+    position: absolute;
+
+    left: 12px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--outline);
+
+    pointer-events: none;
+
+    font-size: 22px;
+}
+
+
+.input-wrapper input {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        10px
+        42px;
+
+    background:
+        var(--surface-low);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid
+        var(--outline-variant);
+
+    border-radius:
+        8px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    transition:
+        .2s;
+}
+
+
+.input-wrapper input::placeholder {
+
+    color:
+        #8b938c;
+}
+
+
+.input-wrapper input:focus {
+
+    background:
+        white;
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 1px
+        var(--primary);
+}
+
+
+.input-wrapper input.input-error {
+
+    border-color:
+        var(--error);
+
+    box-shadow:
+        0 0 0 1px
+        var(--error);
+}
+
+
+/* =====================================================
+   SELECT
+   ===================================================== */
+
+.form-group select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding:
+        10px
+        12px;
+
+    background:
+        var(--surface-low);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid
+        var(--outline-variant);
+
+    border-radius:
+        8px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+.form-group select:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 1px
+        var(--primary);
+}
+
+
+/* =====================================================
+   TWO COLUMN
+   ===================================================== */
+
+.two-column {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 16px;
+}
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+   ===================================================== */
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 0;
+
+    background:
+        transparent;
+
+    color:
+        var(--outline);
+}
+
+
+.password-toggle:hover {
+
+    color:
+        var(--primary);
+}
+
+
+.password-toggle
+.material-symbols-outlined {
+
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.error-message {
+
+    display: block;
+
+    min-height: 17px;
+
+    margin-top: 4px;
+
+    color:
+        var(--error);
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   TERMS
+   ===================================================== */
+
+.terms-row {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-top: 8px;
+}
+
+
+.terms-row input {
+
+    width: 16px;
+
+    height: 16px;
+
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+    accent-color:
+        var(--primary);
+
+    cursor: pointer;
+}
+
+
+.terms-row label {
+
+    color:
+        var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 20px;
+
+    cursor: pointer;
+}
+
+
+.terms-row a {
+
+    color:
+        var(--primary);
+
+    font-weight: 700;
+}
+
+
+.terms-row a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+/* =====================================================
+   CREATE ACCOUNT BUTTON
+   ===================================================== */
+
+.create-account-btn {
+
+    width: 100%;
+
+    height: 52px;
+
+    margin-top: 8px;
+
+    border: 0;
+
+    border-radius:
+        8px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    font-size: 14px;
+
+    letter-spacing:
+        .05em;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 3px 8px
+        rgba(1,44,18,.10);
+
+    transition:
+        .2s;
+}
+
+
+.create-account-btn:hover {
+
+    background:
+        var(--primary-container);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 16px
+        rgba(1,44,18,.15);
+}
+
+
+/* =====================================================
+   DIVIDER
+   ===================================================== */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+
+.divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        var(--outline-variant);
+}
+
+
+.divider strong {
+
+    color:
+        var(--text-secondary);
+
+    font-size: 12px;
+
+    letter-spacing:
+        .15em;
+}
+
+
+/* =====================================================
+   ACCOUNT LINKS
+   ===================================================== */
+
+.account-links {
+
+    margin-top: 24px;
+
+    text-align: center;
+}
+
+
+.account-links p {
+
+    margin: 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+.account-links p a {
+
+    color:
+        var(--primary);
+
+    font-weight: 700;
+}
+
+
+.account-links p a:hover {
+
+    text-decoration:
+        underline;
+}
+
+
+.registration-links {
+
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.registration-links a {
+
+    color:
+        var(--secondary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.registration-links a:hover {
+
+    color:
+        var(--primary);
+
+    text-decoration:
+        underline;
+}
+
+
+.registration-links span {
+
+    color:
+        var(--outline-variant);
+}
+
+
+/* =====================================================
+   BENEFITS
+   ===================================================== */
+
+.benefits-section {
+
+    width: 100%;
+
+    padding:
+        48px 0;
+
+    background:
+        var(--surface-low);
+}
+
+
+.benefits-container {
+
+    width: 100%;
+
+    max-width: 1280px;
+
+    margin: auto;
+
+    padding:
+        0
+        var(--margin-desktop);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 24px;
+}
+
+
+.benefit-card {
+
+    min-height: 220px;
+
+    padding: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        var(--surface-white);
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.benefit-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    margin-bottom: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+
+.benefit-icon
+.material-symbols-outlined {
+
+    font-size: 24px;
+}
+
+
+.green-one {
+
+    background:
+        #bfeec5;
+
+    color:
+        #00210c;
+}
+
+
+.green-two {
+
+    background:
+        #4bfda2;
+
+    color:
+        #00522e;
+}
+
+
+.green-three {
+
+    background:
+        #cfe9d6;
+
+    color:
+        #0a2014;
+}
+
+
+.green-four {
+
+    background:
+        #a4d2aa;
+
+    color:
+        #264f31;
+}
+
+
+.benefit-card h3 {
+
+    margin: 0 0 8px;
+
+    color:
+        var(--text);
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 18px;
+
+    line-height: 24px;
+
+    font-weight: 700;
+}
+
+
+.benefit-card p {
+
+    margin: 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 20px;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+
+    width: 100%;
+
+    padding:
+        64px 0
+        40px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+}
+
+
+.footer-container {
+
+    max-width: 1280px;
+
+    margin: auto;
+
+    padding:
+        0
+        var(--margin-desktop);
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 24px;
+}
+
+
+.footer-brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.footer-brand h3 {
+
+    margin: 0;
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 24px;
+}
+
+
+.footer-brand p {
+
+    margin: 0;
+
+    color:
+        rgba(255,255,255,.80);
+
+    font-size: 14px;
+
+    line-height: 20px;
+}
+
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.footer-column h4 {
+
+    margin: 0 0 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.footer-column a {
+
+    color:
+        rgba(255,255,255,.80);
+
+    font-size: 14px;
+
+    transition:
+        .2s;
+}
+
+
+.footer-column a:hover {
+
+    color:
+        var(--secondary-fixed);
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 1100px) {
+
+    .navbar-container,
+    .benefits-container,
+    .footer-container {
+
+        padding-left:
+            32px;
+
+        padding-right:
+            32px;
+    }
+
+
+    .form-section {
+
+        padding:
+            40px 32px;
+    }
+
+
+    .registration-card {
+
+        padding:
+            36px;
+    }
+
+
+    .image-overlay {
+
+        padding:
+            40px;
+    }
+
+
+    .image-overlay h2 {
+
+        font-size:
+            28px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+    :root {
+
+        --margin-desktop:
+            16px;
+    }
+
+
+    .navbar-container {
+
+        min-height:
+            64px;
+
+        padding:
+            12px
+            16px;
+    }
+
+
+    .main-container {
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+    }
+
+
+    .image-section {
+
+        display:
+            none;
+    }
+
+
+    .mobile-image-section {
+
+        position:
+            relative;
+
+        display:
+            block;
+
+        width:
+            100%;
+
+        height:
+            256px;
+
+        overflow:
+            hidden;
+    }
+
+
+    .mobile-image-section img {
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+    }
+
+
+    .mobile-image-overlay {
+
+        position:
+            absolute;
+
+        inset:
+            0;
+
+        display:
+            flex;
+
+        align-items:
+            flex-end;
+
+        padding:
+            16px;
+
+        background:
+            linear-gradient(
+                to top,
+                rgba(0,0,0,.60),
+                transparent
+            );
+    }
+
+
+    .mobile-image-overlay h2 {
+
+        margin:
+            0;
+
+        color:
+            white;
+
+        font-family:
+            "Hanken Grotesk",
+            sans-serif;
+
+        font-size:
+            24px;
+    }
+
+
+    .form-section {
+
+        width:
+            100%;
+
+        padding:
+            16px;
+    }
+
+
+    .registration-card {
+
+        max-width:
+            none;
+
+        padding:
+            24px
+            16px;
+
+        border-radius:
+            12px;
+    }
+
+
+    .form-header h1 {
+
+        font-size:
+            24px;
+
+        line-height:
+            32px;
+    }
+
+
+    .form-header p {
+
+        font-size:
+            14px;
+
+        line-height:
+            20px;
+    }
+
+
+    .two-column {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+    }
+
+
+    .benefits-section {
+
+        padding:
+            40px 0;
+    }
+
+
+    .benefits-container {
+
+        padding:
+            0 16px;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+    }
+
+
+    .benefit-card {
+
+        min-height:
+            auto;
+
+        padding:
+            24px;
+    }
+
+
+    .footer {
+
+        padding:
+            48px 0
+            32px;
+    }
+
+
+    .footer-container {
+
+        padding:
+            0 16px;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            28px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .mobile-image-section {
+
+        height:
+            220px;
+    }
+
+
+    .registration-card {
+
+        padding:
+            20px
+            14px;
+    }
+
+
+    .registration-links {
+
+        flex-direction:
+            column;
+
+        gap:
+            6px;
+    }
+
+
+    .registration-links span {
+
+        display:
+            none;
+    }
+
+}

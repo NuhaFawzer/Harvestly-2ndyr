@@ -1,0 +1,194 @@
+:root{
+    --green:#2f6b3b;
+    --green-dark:#214f2b;
+    --cream:#f7f5ef;
+    --ink:#1e261f;
+    --muted:#737a73;
+    --line:#e5e8e1;
+    --white:#fff;
+    --shadow:0 18px 45px rgba(28,48,32,.10);
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope',sans-serif;
+}
+
+.contact-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 18px;
+}
+
+.contact-card{
+    width:min(620px,100%);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:var(--green);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:800;
+}
+
+.back-link span{font-size:19px}
+
+.contact-icon{
+    width:58px;
+    height:58px;
+    margin:30px 0 18px;
+    border-radius:17px;
+    display:grid;
+    place-items:center;
+    background:#edf5ec;
+    color:var(--green);
+}
+
+.contact-icon span{font-size:28px}
+
+.eyebrow{
+    margin:0 0 7px;
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+h1{
+    margin:0;
+    font:800 32px 'Hanken Grotesk',sans-serif;
+}
+
+.intro{
+    margin:10px 0 24px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.65;
+}
+
+.contact-details{
+    display:grid;
+    gap:12px;
+}
+
+.contact-item{
+    min-height:66px;
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    border:1px solid var(--line);
+    border-radius:15px;
+    background:#fff;
+    color:var(--ink);
+    text-decoration:none;
+}
+
+.contact-item:hover{
+    border-color:#c9d9c8;
+    background:#f9fbf8;
+}
+
+.contact-item>span:first-child{
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    background:#edf5ec;
+    color:var(--green);
+}
+
+.contact-item span:not(:first-child){
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+.contact-item small{
+    color:var(--muted);
+    font-size:11px;
+    font-weight:700;
+}
+
+.contact-item strong{
+    font-size:14px;
+}
+
+.notice{
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:14px;
+    background:#f6f8f5;
+    border:1px solid #e0e7de;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+}
+
+.notice>span{
+    color:var(--green);
+    font-size:20px;
+}
+
+.notice p{
+    margin:0;
+    color:#687068;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    margin-top:24px;
+}
+
+.primary-btn,
+.secondary-btn{
+    flex:1;
+    min-height:44px;
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:800;
+}
+
+.primary-btn{
+    background:var(--green);
+    color:#fff;
+}
+
+.secondary-btn{
+    border:1px solid #cfd8ce;
+    color:var(--green-dark);
+    background:#fff;
+}
+
+.primary-btn:hover{background:var(--green-dark)}
+.secondary-btn:hover{background:#f7faf6}
+
+@media(max-width:560px){
+    .contact-card{padding:22px}
+    h1{font-size:27px}
+    .actions{flex-direction:column}
+}

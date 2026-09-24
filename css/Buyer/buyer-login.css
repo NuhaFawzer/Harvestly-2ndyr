@@ -1,0 +1,1196 @@
+/* =====================================================
+   HARVESTLY BUYER LOGIN
+   NO FRAMEWORK
+   NO TAILWIND
+   PURE CSS
+   ===================================================== */
+
+:root {
+
+    --primary: #012c12;
+    --primary-container: #1a4326;
+
+    --secondary: #006d3f;
+    --secondary-fixed: #57ffa7;
+
+    --surface: #f8faf8;
+    --surface-low: #f2f4f2;
+    --surface-container: #eceeec;
+    --surface-high: #e6e9e7;
+
+    --surface-white: #ffffff;
+
+    --text: #191c1b;
+    --text-secondary: #424941;
+
+    --outline: #727971;
+    --outline-variant: #c1c9bf;
+
+    --error: #ba1a1a;
+
+    --margin-mobile: 16px;
+    --margin-desktop: 64px;
+
+    --shadow:
+        0 20px 40px -10px
+        rgba(1, 44, 18, 0.08);
+}
+
+
+/* =====================================================
+   RESET
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-family: "Manrope", sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    display: inline-block;
+}
+
+
+/* =====================================================
+   MAIN PAGE
+   ===================================================== */
+
+.login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   LEFT HERO
+   ===================================================== */
+
+.hero-side {
+
+    position: relative;
+
+    width: 50%;
+
+    min-height: 100vh;
+
+    display: block;
+
+    overflow: hidden;
+}
+
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("/Harvestly/assets/login-garden.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: var(--margin-desktop);
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(1,44,18,.80),
+            rgba(1,44,18,0)
+        );
+}
+
+
+.hero-text {
+
+    max-width: 620px;
+
+    color: white;
+}
+
+
+.hero-text h2 {
+
+    margin: 0 0 16px;
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 48px;
+
+    line-height: 56px;
+
+    letter-spacing: -.02em;
+
+    font-weight: 700;
+}
+
+
+.hero-text p {
+
+    margin: 0;
+
+    max-width: 600px;
+
+    color:
+        rgba(255,255,255,.90);
+
+    font-size: 18px;
+
+    line-height: 28px;
+}
+
+
+/* =====================================================
+   RIGHT SIDE
+   ===================================================== */
+
+.login-side {
+
+    width: 50%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--surface);
+
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   MOBILE HERO
+   ===================================================== */
+
+.mobile-hero {
+
+    display: none;
+}
+
+
+/* =====================================================
+   LOGIN CONTENT
+   ===================================================== */
+
+.login-content {
+
+    flex: 1;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    padding:
+        var(--margin-desktop);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+   LOGIN CARD
+   ===================================================== */
+
+.login-card {
+
+    width: 100%;
+
+    background:
+        var(--surface-white);
+
+    border-radius: 24px;
+
+    padding: 48px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.login-header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.harvestly-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+
+    color: var(--primary);
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+.harvestly-logo
+.material-symbols-outlined {
+
+    color: var(--secondary);
+
+    font-size: 34px;
+}
+
+
+.login-header h1 {
+
+    margin: 0 0 8px;
+
+    color: var(--primary);
+
+    font-family:
+        "Hanken Grotesk",
+        sans-serif;
+
+    font-size: 32px;
+
+    line-height: 40px;
+
+    font-weight: 600;
+}
+
+
+.login-header p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 20px;
+}
+
+
+/* =====================================================
+   PHP MESSAGE
+   ===================================================== */
+
+.php-message {
+
+    margin-bottom: 20px;
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    background: #e8f5e9;
+
+    color: var(--secondary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.form-group {
+
+    margin-bottom: 24px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    line-height: 16px;
+
+    letter-spacing: .05em;
+
+    font-weight: 700;
+}
+
+
+.input-wrapper {
+
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-icon {
+
+    position: absolute;
+
+    left: 16px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--outline);
+
+    pointer-events: none;
+
+    font-size: 22px;
+}
+
+
+.input-wrapper input {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding:
+        12px
+        48px;
+
+    border:
+        1px solid
+        var(--surface-container);
+
+    border-radius: 8px;
+
+    outline: none;
+
+    background:
+        var(--surface-low);
+
+    color: var(--text);
+
+    font-size: 16px;
+
+    transition:
+        border .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+
+    color: var(--outline-variant);
+}
+
+
+.input-wrapper input:focus {
+
+    background: white;
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 1px
+        var(--primary);
+}
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+   ===================================================== */
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 4px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--outline);
+}
+
+
+.password-toggle:hover {
+
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   ERROR
+   ===================================================== */
+
+.error-message {
+
+    display: block;
+
+    min-height: 18px;
+
+    margin-top: 5px;
+
+    color: var(--error);
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   REMEMBER / FORGOT
+   ===================================================== */
+
+.remember-row {
+
+    margin-top: 4px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.remember-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+.remember-label input {
+
+    width: 16px;
+
+    height: 16px;
+
+    margin: 0;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+.forgot-link {
+
+    color: var(--secondary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: color .2s ease;
+}
+
+
+.forgot-link:hover {
+
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+   ===================================================== */
+
+.login-button {
+
+    width: 100%;
+
+    height: 56px;
+
+    margin-top: 24px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--secondary),
+            var(--primary)
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    letter-spacing: .05em;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 3px 8px
+        rgba(1,44,18,.10);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.login-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 16px
+        rgba(1,44,18,.18);
+}
+
+
+.login-button:active {
+
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================================
+   DIVIDER
+   ===================================================== */
+
+.divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin:
+        32px 0 20px;
+}
+
+
+.divider span {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        var(--surface-container);
+}
+
+
+.divider strong {
+
+    color:
+        var(--outline-variant);
+
+    font-size: 12px;
+
+    letter-spacing: .18em;
+}
+
+
+/* =====================================================
+   SECONDARY BUTTONS
+   ===================================================== */
+
+.secondary-links {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+
+.secondary-button {
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    border:
+        1px solid
+        var(--surface-container);
+
+    border-radius: 8px;
+
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        background .2s ease,
+        border .2s ease,
+        color .2s ease;
+}
+
+
+.secondary-button
+.material-symbols-outlined {
+
+    font-size: 20px;
+}
+
+
+.secondary-button:hover {
+
+    background:
+        var(--surface-low);
+
+    border-color:
+        var(--outline-variant);
+
+    color:
+        var(--secondary);
+}
+
+
+/* =====================================================
+   FEATURES
+   ===================================================== */
+
+.features {
+
+    width: 100%;
+
+    margin-top: 48px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+
+.feature-card {
+
+    min-height: 96px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    background:
+        var(--surface-white);
+
+    border:
+        1px solid
+        var(--surface-low);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 25px -10px
+        rgba(1,44,18,.07);
+}
+
+
+.feature-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+
+.feature-icon
+.material-symbols-outlined {
+
+    font-size: 20px;
+}
+
+
+.farm-icon {
+
+    background:
+        #cfe9d6;
+
+    color:
+        #0a2014;
+}
+
+
+.secure-icon {
+
+    background:
+        #bfeec5;
+
+    color:
+        #264f31;
+}
+
+
+.delivery-icon {
+
+    background:
+        var(--secondary-fixed);
+
+    color:
+        #002110;
+}
+
+
+.feature-card h4 {
+
+    margin: 0;
+
+    color:
+        var(--text);
+
+    font-size: 14px;
+
+    line-height: 16px;
+
+    font-weight: 700;
+}
+
+
+.feature-card p {
+
+    margin: 5px 0 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 12px;
+
+    line-height: 17px;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.login-footer {
+
+    width: 100%;
+
+    padding:
+        20px
+        var(--margin-desktop);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top:
+        1px solid
+        var(--surface-high);
+
+    color:
+        var(--text-secondary);
+
+    font-size: 14px;
+}
+
+
+.login-footer p {
+
+    margin: 0;
+}
+
+
+.login-footer > div {
+
+    display: flex;
+
+    gap: 24px;
+}
+
+
+.login-footer a:hover {
+
+    color:
+        var(--primary);
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 1100px) {
+
+    .hero-text h2 {
+
+        font-size: 40px;
+
+        line-height: 48px;
+    }
+
+
+    .login-content {
+
+        padding:
+            40px 32px;
+    }
+
+
+    .login-card {
+
+        padding: 36px;
+    }
+
+
+    .features {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+    .login-page {
+
+        display: block;
+
+        min-height: 100vh;
+    }
+
+
+    .hero-side {
+
+        display: none;
+    }
+
+
+    .login-side {
+
+        width: 100%;
+
+        min-height: 100vh;
+    }
+
+
+    .mobile-hero {
+
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+
+        height: 30vh;
+
+        min-height: 190px;
+
+        overflow: hidden;
+    }
+
+
+    .mobile-hero-image {
+
+        position: absolute;
+
+        inset: 0;
+
+        background-image:
+            url("../../assets/login-garden.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+    }
+
+
+    .mobile-hero-gradient {
+
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(248,250,248,0),
+                var(--surface)
+            );
+    }
+
+
+    .login-content {
+
+        width: 100%;
+
+        max-width: none;
+
+        margin: 0;
+
+        padding:
+            0
+            var(--margin-mobile)
+            32px;
+
+        display: block;
+    }
+
+
+    .login-card {
+
+        position: relative;
+
+        z-index: 10;
+
+        margin-top: -60px;
+
+        padding: 24px 16px;
+
+        border-radius: 24px;
+    }
+
+
+    .login-header {
+
+        margin-bottom: 28px;
+    }
+
+
+    .harvestly-logo {
+
+        margin-bottom: 16px;
+
+        font-size: 24px;
+    }
+
+
+    .harvestly-logo
+    .material-symbols-outlined {
+
+        font-size: 30px;
+    }
+
+
+    .login-header h1 {
+
+        font-size: 24px;
+
+        line-height: 32px;
+    }
+
+
+    .login-header p {
+
+        font-size: 14px;
+
+        line-height: 20px;
+    }
+
+
+    .secondary-links {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .secondary-button {
+
+        min-height: 50px;
+    }
+
+
+    .features {
+
+        margin-top: 32px;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .feature-card {
+
+        min-height: auto;
+    }
+
+
+    .login-footer {
+
+        padding:
+            20px
+            var(--margin-mobile);
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .login-footer > div {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px 20px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .login-card {
+
+        padding:
+            22px 14px;
+    }
+
+
+    .remember-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .forgot-link {
+
+        align-self: flex-end;
+    }
+
+}
