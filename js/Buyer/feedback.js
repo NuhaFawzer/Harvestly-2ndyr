@@ -1,3 +1,28 @@
+const HARVESTLY_BASE_URL = (() => {
+    const pathname = window.location.pathname || "";
+    const controllerMarker = "/Controller/";
+    const markerIndex = pathname.indexOf(controllerMarker);
+
+    if (markerIndex >= 0) {
+        return pathname.slice(0, markerIndex);
+    }
+
+    const segments = pathname.split("/").filter(Boolean);
+    const first = segments[0] || "";
+    const applicationFolders = new Set([
+        "Controller", "View", "buyer", "auth", "admin", "farmer", "courier", "config", "includes"
+    ]);
+
+    if (!first || applicationFolders.has(first)) {
+        return "";
+    }
+
+    return "/" + first;
+})();
+
+const buyerControllerUrl = (controller, query = "") =>
+    `${HARVESTLY_BASE_URL}/Controller/Buyer/${controller}${query ? `?${query}` : ""}`;
+
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
@@ -197,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         loginBtn.addEventListener("click", function () {
 
-            window.location.href = "/Harvestly/Controller/Buyer/AuthController.php";
+            window.location.href = buyerControllerUrl('AuthController.php');
 
         });
 
@@ -208,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         registerBtn.addEventListener("click", function () {
 
-            window.location.href = "/Harvestly/Controller/Buyer/RegistrationController.php";
+            window.location.href = buyerControllerUrl('RegistrationController.php');
 
         });
 

@@ -43,10 +43,10 @@ foreach ($cartItems as $checkoutItem) {
 
 <link
     rel="stylesheet"
-    href="/Harvestly/css/Buyer/checkout.css"
+    href="<?= e(BASE_URL) ?>/css/Buyer/checkout.css"
 >
 
-    <script src="/Harvestly/js/icon-fallback.js" defer></script>
+    <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -63,7 +63,7 @@ foreach ($cartItems as $checkoutItem) {
 <header class="checkout-header">
 
     <a
-        href="/Harvestly/Controller/Buyer/CartController.php"
+        href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php"
         class="back-link"
     >
 
@@ -77,11 +77,11 @@ foreach ($cartItems as $checkoutItem) {
 
 
     <a
-        href="/Harvestly/Controller/Buyer/DashboardController.php"
+        href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
         class="brand"
     >
 
-        <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+        <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
     </a>
 
@@ -130,7 +130,7 @@ foreach ($cartItems as $checkoutItem) {
 
 <form
     id="checkoutForm"
-    action="/Harvestly/Controller/Buyer/CheckoutController.php"
+    action="<?= e(BASE_URL) ?>/Controller/Buyer/CheckoutController.php"
     method="POST"
     class="checkout-grid"
 >
@@ -428,7 +428,7 @@ $itemTotal = $itemQty * $itemPrice;
 <img
     src="<?= htmlspecialchars(
         $item['image']
-        ?? '/Harvestly/assets/images/vegfr.jpg'
+        ?? url('assets/images/vegfr.jpg')
     ) ?>"
     alt="<?= htmlspecialchars(
         $item['name']
@@ -651,7 +651,7 @@ Bridging Sri Lankan Fields to Your Table.
 </div>
 
 
-<script src="/Harvestly/js/Buyer/checkout.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/checkout.js"></script>
 
 </body>
 

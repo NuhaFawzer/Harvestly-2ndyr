@@ -125,7 +125,7 @@ button {
     inset: 0;
 
     background-image:
-        url("/Harvestly/assets/login-garden.jpg");
+        url("../../assets/login-garden.jpg");
 
     background-size: cover;
 

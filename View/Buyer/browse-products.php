@@ -30,6 +30,10 @@ $growingMethod = $growingMethod ?? "All Growing Methods";
 $added =
     $added ?? false;
 
+$filterDistricts = $filterDistricts ?? [];
+$listingOptions = $listingOptions ?? ["All Listing Types", "Available Now", "Harvest Soon", "Seasonal"];
+$growingOptions = $growingOptions ?? ["All Growing Methods", "Organic", "Conventional", "Mixed"];
+
 ?>
 
 <!DOCTYPE html>
@@ -222,6 +226,8 @@ $added =
                     Filters
                 </h2>
 
+                <p class="filter-description">Refine products by district, price, listing type, growing method, freshness, and stock.</p>
+
 
                 <!-- SEARCH -->
 
@@ -270,54 +276,15 @@ $added =
                         name="district"
                     >
 
-                        <option
-                            value="All Districts"
-                            <?php
-                            echo $district === "All Districts"
-                                ? "selected"
-                                : "";
-                            ?>
-                        >
-                            All Districts
-                        </option>
+                        <option value="All Districts" <?php echo $district === "All Districts" ? "selected" : ""; ?>>All Districts</option>
 
+<?php foreach ($filterDistricts as $filterDistrict): ?>
+    <option value="<?php echo htmlspecialchars($filterDistrict); ?>" <?php echo strcasecmp((string)$district, (string)$filterDistrict) === 0 ? "selected" : ""; ?>>
+        <?php echo htmlspecialchars($filterDistrict); ?>
+    </option>
+<?php endforeach; ?>
 
-                        <option
-                            value="Nuwara Eliya"
-                            <?php
-                            echo $district === "Nuwara Eliya"
-                                ? "selected"
-                                : "";
-                            ?>
-                        >
-                            Nuwara Eliya
-                        </option>
-
-
-                        <option
-                            value="Badulla"
-                            <?php
-                            echo $district === "Badulla"
-                                ? "selected"
-                                : "";
-                            ?>
-                        >
-                            Badulla
-                        </option>
-
-
-                        <option
-                            value="Kandy"
-                            <?php
-                            echo $district === "Kandy"
-                                ? "selected"
-                                : "";
-                            ?>
-                        >
-                            Kandy
-                        </option>
-
-                    </select>
+</select>
 
                 </div>
 
@@ -382,7 +349,7 @@ $added =
                     </label>
 
                     <select id="listingType" name="listingType">
-                        <?php foreach (["All Listing Types", "Available Now", "Harvest Soon", "Seasonal"] as $type): ?>
+                        <?php foreach ($listingOptions as $type): ?>
                             <option value="<?php echo htmlspecialchars($type); ?>" <?php echo $listingType === $type ? "selected" : ""; ?>>
                                 <?php echo htmlspecialchars($type); ?>
                             </option>
@@ -400,7 +367,7 @@ $added =
                     </label>
 
                     <select id="growingMethod" name="growingMethod">
-                        <?php foreach (["All Growing Methods", "Organic", "Conventional"] as $method): ?>
+                        <?php foreach ($growingOptions as $method): ?>
                             <option value="<?php echo htmlspecialchars($method); ?>" <?php echo $growingMethod === $method ? "selected" : ""; ?>>
                                 <?php echo htmlspecialchars($method); ?>
                             </option>
@@ -535,6 +502,21 @@ $added =
             <!-- =================================================
                  SORT
             ================================================== -->
+
+            <div class="active-filter-summary">
+                <div>
+                    <strong>Filters applied:</strong>
+                    <span class="filter-chip"><?php echo htmlspecialchars($district); ?></span>
+                    <span class="filter-chip">Up to LKR <?php echo number_format((float)$maxPrice); ?></span>
+                    <span class="filter-chip"><?php echo htmlspecialchars($listingType); ?></span>
+                    <span class="filter-chip"><?php echo htmlspecialchars($growingMethod); ?></span>
+                    <?php if ($organic): ?><span class="filter-chip">Organic Certified</span><?php endif; ?>
+                    <?php if ($fresh): ?><span class="filter-chip">Fresh Today</span><?php endif; ?>
+                    <?php if ($stock): ?><span class="filter-chip">In Stock</span><?php endif; ?>
+                    <?php if ($search !== ''): ?><span class="filter-chip">Search: <?php echo htmlspecialchars($search); ?></span><?php endif; ?>
+                </div>
+                <span class="filter-help">Use Apply Filters to update the products below.</span>
+            </div>
 
             <div class="sort-bar">
 
@@ -1004,27 +986,27 @@ $added =
 
         <div class="footer-links">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 About Harvestly
             </a>
 
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Quick Links
             </a>
 
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Contact Us
             </a>
 
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Privacy Policy
             </a>
 
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Terms of Service
             </a>
 

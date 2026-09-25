@@ -1,7 +1,32 @@
+const HARVESTLY_BASE_URL = (() => {
+    const pathname = window.location.pathname || "";
+    const controllerMarker = "/Controller/";
+    const markerIndex = pathname.indexOf(controllerMarker);
+
+    if (markerIndex >= 0) {
+        return pathname.slice(0, markerIndex);
+    }
+
+    const segments = pathname.split("/").filter(Boolean);
+    const first = segments[0] || "";
+    const applicationFolders = new Set([
+        "Controller", "View", "buyer", "auth", "admin", "farmer", "courier", "config", "includes"
+    ]);
+
+    if (!first || applicationFolders.has(first)) {
+        return "";
+    }
+
+    return "/" + first;
+})();
+
+const buyerControllerUrl = (controller, query = "") =>
+    `${HARVESTLY_BASE_URL}/Controller/Buyer/${controller}${query ? `?${query}` : ""}`;
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const controllerUrl =
-        "/Harvestly/Controller/Buyer/CartController.php";
+        buyerControllerUrl('CartController.php');
 
 
     const itemCount =
@@ -204,7 +229,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!item) {
 
             if (card) {
+                const farmerGroup = card.closest('.farmer-cart-group');
                 card.remove();
+
+                if (farmerGroup && !farmerGroup.querySelector('.cart-item')) {
+                    farmerGroup.remove();
+                }
             }
 
             updateSummary(data);
@@ -443,7 +473,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
 
                 window.location.href =
-                    "/Harvestly/Controller/Buyer/ProductController.php";
+                    buyerControllerUrl('ProductController.php');
 
             }
         );
@@ -471,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
 
                 window.location.href =
-                    "/Harvestly/Controller/Buyer/ProductController.php";
+                    buyerControllerUrl('ProductController.php');
 
             }
         );
@@ -507,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 window.location.href =
-                    "/Harvestly/Controller/Buyer/CheckoutController.php";
+                    buyerControllerUrl('CheckoutController.php');
 
             }
         );

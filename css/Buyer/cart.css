@@ -1309,3 +1309,42 @@ img {
     .farmer-group-footer { justify-content: stretch; }
     .farmer-checkout-button { width: 100%; }
 }
+
+
+.harvestly-brand-logo {
+    width: 112px;
+    height: 36px;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 6px;
+}
+
+.cart-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.cart-header-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #012c12;
+    border-radius: 50%;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.cart-header-icon:hover,
+.cart-header-icon.active {
+    background: #eef7f1;
+    transform: translateY(-1px);
+}
+
+.cart-header-icon svg {
+    width: 22px;
+    height: 22px;
+}

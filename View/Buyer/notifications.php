@@ -23,12 +23,12 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/notifications.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/notifications.css"
     >
 
     <!-- Fonts -->
     <!-- Material Icons -->
-        <script src="/Harvestly/js/icon-fallback.js" defer></script>
+        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -46,11 +46,11 @@ $totalDeliveries = $totalDeliveries ?? 0;
         <!-- LOGO -->
 
         <a
-            href="/Harvestly/Controller/Buyer/DashboardController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
             class="brand"
         >
 
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" class="harvestly-brand-logo">
 
         </a>
 
@@ -59,11 +59,11 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
         <nav class="main-nav">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Home
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/ProductController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">
                 Products
             </a>
 
@@ -115,17 +115,18 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
             <!-- CART -->
 
-            <button
+            <a
+                href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php"
                 class="header-icon"
-                type="button"
                 id="cartButton"
+                aria-label="Shopping Cart"
             >
-
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
-
-            </button>
+                <svg class="header-svg-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 4H5L7.2 14.5C7.4 15.4 8.2 16 9.1 16H17.5C18.3 16 19 15.5 19.3 14.8L21 9H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9.5" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="17" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+            </a>
 
 
             <!-- AUTH -->
@@ -144,7 +145,7 @@ $totalDeliveries = $totalDeliveries ?? 0;
 <header class="mobile-header">
 
     <a
-        href="/Harvestly/Controller/Buyer/DashboardController.php"
+        href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
         class="mobile-logo"
     >
 
@@ -203,11 +204,11 @@ $totalDeliveries = $totalDeliveries ?? 0;
     id="mobileMenu"
 >
 
-    <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
         Home
     </a>
 
-    <a href="/Harvestly/Controller/Buyer/ProductController.php">
+    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">
         Products
     </a>
 
@@ -599,7 +600,7 @@ $totalDeliveries = $totalDeliveries ?? 0;
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <a class="activity-link" href="/Harvestly/Controller/Buyer/OrderTrackingController.php?id=<?= urlencode($latestOrder['id']) ?>">
+                    <a class="activity-link" href="<?= e(BASE_URL) ?>/Controller/Buyer/OrderTrackingController.php?id=<?= urlencode($latestOrder['id']) ?>">
                         Track this order
                     </a>
                 <?php endif; ?>
@@ -729,11 +730,11 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
         <div class="footer-column">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php#about">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php#about">
                 About Harvestly
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Quick Links
             </a>
 
@@ -744,7 +745,7 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
         <div class="footer-column">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Contact Us
             </a>
 
@@ -755,11 +756,11 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
         <div class="footer-column">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Privacy Policy
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Terms of Service
             </a>
 
@@ -771,7 +772,7 @@ $totalDeliveries = $totalDeliveries ?? 0;
 </footer>
 
 
-<script src="/Harvestly/js/Buyer/notifications.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/notifications.js"></script>
 
 </body>
 

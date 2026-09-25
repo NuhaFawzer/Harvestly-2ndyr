@@ -26,12 +26,12 @@ $messageType = $messageType ?? '';
     <!-- CSS -->
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/forgot-password.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/forgot-password.css"
     >
 
     <!-- Google Fonts -->
     <!-- Material Symbols -->
-        <script src="/Harvestly/js/icon-fallback.js" defer></script>
+        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -101,7 +101,7 @@ $messageType = $messageType ?? '';
 
                 <img
                     class="harvestly-logo"
-                    src="/Harvestly/assets/harvestly-logo.jpeg"
+                    src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg"
                     alt="Harvestly Logo"
                 >
 
@@ -140,7 +140,7 @@ $messageType = $messageType ?? '';
 
 
                 <form
-                    action="/Harvestly/Controller/Buyer/ForgotPasswordController.php"
+                    action="<?= e(BASE_URL) ?>/Controller/Buyer/ForgotPasswordController.php"
                     method="POST"
                     id="forgotPasswordForm"
                     novalidate
@@ -243,7 +243,7 @@ $messageType = $messageType ?? '';
 
 
                 <a
-                    href="/Harvestly/Controller/Buyer/AuthController.php"
+                    href="<?= e(BASE_URL) ?>/Controller/Buyer/AuthController.php"
                     class="navigation-link"
                 >
 
@@ -259,7 +259,7 @@ $messageType = $messageType ?? '';
 
 
                 <a
-                    href="/Harvestly/Controller/Buyer/RegistrationController.php"
+                    href="<?= e(BASE_URL) ?>/Controller/Buyer/RegistrationController.php"
                     class="navigation-link"
                 >
 
@@ -341,7 +341,7 @@ $messageType = $messageType ?? '';
 
 <!-- JavaScript -->
 
-<script src="/Harvestly/js/Buyer/forgot-password.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/forgot-password.js"></script>
 
 </body>
 

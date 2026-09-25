@@ -33,7 +33,7 @@ $message = isset($message) ? $message : "";
 
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/buyer-login.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/buyer-login.css"
     >
 
 
@@ -41,7 +41,7 @@ $message = isset($message) ? $message : "";
 
     <!-- Material Symbols -->
 
-        <script src="/Harvestly/js/icon-fallback.js" defer></script>
+        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -120,7 +120,7 @@ $message = isset($message) ? $message : "";
                     <!-- Harvestly Logo -->
 
                     <div class="harvestly-logo">
-                        <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:42px;width:auto;max-width:190px;display:block;object-fit:contain;">
+                        <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:42px;width:auto;max-width:190px;display:block;object-fit:contain;">
                     </div>
 
 
@@ -163,7 +163,7 @@ $message = isset($message) ? $message : "";
                 ================================================== -->
 
                 <form
-                    action="/Harvestly/Controller/Buyer/AuthController.php"
+                    action="<?= e(BASE_URL) ?>/Controller/Buyer/AuthController.php"
                     method="POST"
                     id="loginForm"
                 >
@@ -286,7 +286,7 @@ $message = isset($message) ? $message : "";
 
 
                         <a
-                            href="/Harvestly/Controller/Buyer/ForgotPasswordController.php"
+                            href="<?= e(BASE_URL) ?>/Controller/Buyer/ForgotPasswordController.php"
                             class="forgot-link"
                         >
                             Forgot Password?
@@ -339,7 +339,7 @@ $message = isset($message) ? $message : "";
                     <!-- BUYER REGISTRATION -->
 
                     <a
-                        href="/Harvestly/Controller/Buyer/RegistrationController.php"
+                        href="<?= e(BASE_URL) ?>/Controller/Buyer/RegistrationController.php"
                         class="secondary-button"
                     >
 
@@ -358,7 +358,7 @@ $message = isset($message) ? $message : "";
                     <!-- FARMER LOGIN -->
 
                     <a
-                        href="/Harvestly/Controller/Buyer/DashboardController.php"
+                        href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
                         class="secondary-button"
                     >
 
@@ -377,7 +377,7 @@ $message = isset($message) ? $message : "";
                     <!-- COURIER LOGIN -->
 
                     <a
-                        href="/Harvestly/Controller/Buyer/DashboardController.php"
+                        href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
                         class="secondary-button"
                     >
 
@@ -396,7 +396,7 @@ $message = isset($message) ? $message : "";
                     <!-- ADMIN LOGIN -->
 
                     <a
-                        href="/Harvestly/Controller/Buyer/DashboardController.php"
+                        href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
                         class="secondary-button"
                     >
 
@@ -533,15 +533,15 @@ $message = isset($message) ? $message : "";
 
             <div>
 
-                <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                     Privacy Policy
                 </a>
 
-                <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                     Terms of Service
                 </a>
 
-                <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                     Contact Us
                 </a>
 
@@ -560,7 +560,7 @@ $message = isset($message) ? $message : "";
 
 <!-- Existing Buyer JavaScript -->
 
-<script src="/Harvestly/js/Buyer/buyer-login.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/buyer-login.js"></script>
 
 
 </body>

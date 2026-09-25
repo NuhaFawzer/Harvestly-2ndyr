@@ -4,12 +4,90 @@ buyer_require_login();
 
 $bid = currentBuyerId();
 $reviewMessage = '';
-$complaintMessage = '';
+$complaintMessage = trim((string)($_GET['complaint_message'] ?? ''));
 $isAjax = strtolower((string)($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '')) === 'xmlhttprequest';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $responseSuccess = false;
     $responseMessage = 'Unable to process the request.';
+
+
+    /* =========================
+       COMPLAINT UPDATE (CRUD)
+    ========================= */
+    if (isset($_POST['update_complaint'])) {
+        $complaintId = (int)($_POST['complaint_id'] ?? 0);
+        $category = trim((string)($_POST['category'] ?? 'Other'));
+        $details = trim((string)($_POST['details'] ?? ''));
+        $allowedCategories = [
+            'Product Quality', 'Damaged Product', 'Wrong Product',
+            'Incorrect Quantity', 'Delivery Issue', 'Other'
+        ];
+
+        if ($complaintId <= 0 || $details === '') {
+            $responseMessage = 'Please enter a complaint description.';
+        } elseif (!in_array($category, $allowedCategories, true)) {
+            $responseMessage = 'Please select a valid complaint category.';
+        } else {
+            $st = db()->prepare(
+                "UPDATE complaints
+                 SET category = ?, description = ?
+                 WHERE complaint_id = ?
+                   AND complainant_user_id = ?
+                   AND UPPER(complaint_status) = 'OPEN'
+                   AND created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR)"
+            );
+            $st->bind_param('ssii', $category, $details, $complaintId, $bid);
+            $responseSuccess = $st->execute() && $st->affected_rows > 0;
+            $st->close();
+            $responseMessage = $responseSuccess
+                ? 'Complaint updated successfully.'
+                : 'This complaint can no longer be updated.';
+        }
+
+        if ($isAjax) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['success' => $responseSuccess, 'message' => $responseMessage]);
+            exit();
+        }
+
+        header('Location: ' . buyerRoute('FeedbackController.php') . '?complaint_message=' . urlencode($responseMessage));
+        exit();
+    }
+
+    /* =========================
+       COMPLAINT DELETE (CRUD)
+    ========================= */
+    if (isset($_POST['delete_complaint'])) {
+        $complaintId = (int)($_POST['complaint_id'] ?? 0);
+
+        if ($complaintId <= 0) {
+            $responseMessage = 'Invalid complaint selected.';
+        } else {
+            $st = db()->prepare(
+                "DELETE FROM complaints
+                 WHERE complaint_id = ?
+                   AND complainant_user_id = ?
+                   AND UPPER(complaint_status) = 'OPEN'
+                   AND created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR)"
+            );
+            $st->bind_param('ii', $complaintId, $bid);
+            $responseSuccess = $st->execute() && $st->affected_rows > 0;
+            $st->close();
+            $responseMessage = $responseSuccess
+                ? 'Complaint deleted successfully.'
+                : 'This complaint can no longer be deleted.';
+        }
+
+        if ($isAjax) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['success' => $responseSuccess, 'message' => $responseMessage]);
+            exit();
+        }
+
+        header('Location: ' . buyerRoute('FeedbackController.php') . '?complaint_message=' . urlencode($responseMessage));
+        exit();
+    }
 
     if (isset($_POST['submit_review'])) {
         $oid = (int)preg_replace('/\D/', '', (string)($_POST['order_id'] ?? ''));

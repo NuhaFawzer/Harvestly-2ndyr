@@ -2295,3 +2295,19 @@ a {
     opacity: .55;
     cursor: default;
 }
+
+
+.harvestly-brand-logo {
+    width: 112px;
+    height: 36px;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 6px;
+}
+
+.header-svg-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+}

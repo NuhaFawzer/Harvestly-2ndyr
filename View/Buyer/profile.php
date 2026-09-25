@@ -7,7 +7,7 @@ $error = isset($error) ? $error : '';
 $profileImage = trim((string)($buyer['profile_image'] ?? ''));
 $profileImage = $profileImage !== ''
     ? $profileImage
-    : '/Harvestly/assets/harvestly-logo.jpeg';
+    : url('assets/harvestly-logo.jpeg');
 
 $buyerName = (string)($buyer['name'] ?? '');
 $buyerEmail = (string)($buyer['email'] ?? '');
@@ -49,10 +49,10 @@ if ($buyerJoined !== '') {
 
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/buyer-profile.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/buyer-profile.css"
     >
 
-        <script src="/Harvestly/js/icon-fallback.js" defer></script>
+        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -63,29 +63,29 @@ if ($buyerJoined !== '') {
 
     <div class="navbar-inner">
 
-        <a href="/Harvestly/Controller/Buyer/DashboardController.php" class="brand">
+        <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php" class="brand">
 
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
         </a>
 
         <div class="desktop-nav">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">Home</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">Home</a>
 
-            <a href="/Harvestly/Controller/Buyer/ProductController.php">Products</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">Products</a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php#categories">Categories</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php#categories">Categories</a>
 
-            <a href="/Harvestly/Controller/Buyer/LandingController.php#farmers">Farmers</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php#farmers">Farmers</a>
 
-            <a href="/Harvestly/Controller/Buyer/LandingController.php#about">About</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php#about">About</a>
 
         </div>
 
         <div class="nav-actions">
 
-            <a href="/Harvestly/Controller/Buyer/CartController.php" class="icon-btn">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php" class="icon-btn">
 
                 <span class="material-symbols-outlined">
                     shopping_cart
@@ -116,7 +116,7 @@ if ($buyerJoined !== '') {
                 </span>
 
                 <a
-                    href="/Harvestly/Controller/Buyer/LogoutController.php"
+                    href="<?= e(BASE_URL) ?>/Controller/Buyer/LogoutController.php"
                     class="logout-link"
                     title="Logout"
                 >
@@ -144,15 +144,15 @@ if ($buyerJoined !== '') {
 
             <ul>
 
-                <li><a href="/Harvestly/Controller/Buyer/DashboardController.php"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/ProductController.php"><span class="material-symbols-outlined">storefront</span><span>Browse Products</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/CartController.php"><span class="material-symbols-outlined">shopping_cart</span><span>Cart</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/OrdersController.php" ><span class="material-symbols-outlined">receipt_long</span><span>My Orders</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">rate_review</span><span>Reviews</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">report_problem</span><span>Complaints</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/NotificationsController.php"><span class="material-symbols-outlined">notifications</span><span>Notifications</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/ProfileController.php" class="active"><span class="material-symbols-outlined">person</span><span>Profile</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/LogoutController.php"><span class="material-symbols-outlined">logout</span><span>Logout</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"><span class="material-symbols-outlined">storefront</span><span>Browse Products</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php"><span class="material-symbols-outlined">shopping_cart</span><span>Cart</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/OrdersController.php" ><span class="material-symbols-outlined">receipt_long</span><span>My Orders</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">rate_review</span><span>Reviews</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">report_problem</span><span>Complaints</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/NotificationsController.php"><span class="material-symbols-outlined">notifications</span><span>Notifications</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProfileController.php" class="active"><span class="material-symbols-outlined">person</span><span>Profile</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/LogoutController.php"><span class="material-symbols-outlined">logout</span><span>Logout</span></a></li>
 
             </ul>
 
@@ -470,7 +470,7 @@ if ($buyerJoined !== '') {
             <form
                 method="POST"
                 id="deleteAccountForm"
-                action="/Harvestly/Controller/Buyer/ProfileController.php"
+                action="<?= e(BASE_URL) ?>/Controller/Buyer/ProfileController.php"
                 hidden
             >
                 <input type="hidden" name="action" value="delete_account">
@@ -623,7 +623,7 @@ if ($buyerJoined !== '') {
             </div>
 
 
-            <a href="/Harvestly/Controller/Buyer/OrdersController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/OrdersController.php">
 
                 View Order History
 
@@ -655,7 +655,7 @@ if ($buyerJoined !== '') {
 </footer>
 
 
-<script src="/Harvestly/js/Buyer/buyer-profile.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/buyer-profile.js"></script>
 
 </body>
 

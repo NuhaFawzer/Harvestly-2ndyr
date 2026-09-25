@@ -34,12 +34,12 @@ $formData = isset($formData) ? $formData : [
     <!-- Your own CSS -->
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/buyer-registration.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/buyer-registration.css"
     >
 
     <!-- Fonts -->
     <!-- Icons -->
-        <script src="/Harvestly/js/icon-fallback.js" defer></script>
+        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -54,10 +54,10 @@ $formData = isset($formData) ? $formData : [
     <div class="navbar-container">
 
         <a
-            href="/Harvestly/Controller/Buyer/LandingController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php"
             class="logo"
         >
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:36px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:36px;width:auto;display:block;object-fit:contain;">
         </a>
 
     </div>
@@ -79,7 +79,7 @@ $formData = isset($formData) ? $formData : [
     <section class="image-section">
 
         <img
-            src="/Harvestly/assets/register-garden.jpg"
+            src="<?= e(BASE_URL) ?>/assets/register-garden.jpg"
             alt="Sri Lankan family shopping for fresh vegetables"
             class="main-image"
         >
@@ -109,7 +109,7 @@ $formData = isset($formData) ? $formData : [
     <section class="mobile-image-section">
 
         <img
-            src="/Harvestly/assets/register-garden.jpg"
+            src="<?= e(BASE_URL) ?>/assets/register-garden.jpg"
             alt="Fresh vegetables"
         >
 
@@ -169,7 +169,7 @@ $formData = isset($formData) ? $formData : [
             <!-- FORM -->
 
             <form
-                action="/Harvestly/Controller/Buyer/RegistrationController.php"
+                action="<?= e(BASE_URL) ?>/Controller/Buyer/RegistrationController.php"
                 method="POST"
                 id="registrationForm"
                 novalidate
@@ -513,13 +513,13 @@ $formData = isset($formData) ? $formData : [
 
                         I agree to the
 
-                        <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                        <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                             Terms & Conditions
                         </a>
 
                         and
 
-                        <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                        <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                             Privacy Policy
                         </a>
 
@@ -576,7 +576,7 @@ $formData = isset($formData) ? $formData : [
 
                     Already have an account?
 
-                    <a href="/Harvestly/Controller/Buyer/AuthController.php">
+                    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/AuthController.php">
                         Login
                     </a>
 
@@ -585,7 +585,7 @@ $formData = isset($formData) ? $formData : [
 
                 <div class="registration-links">
 
-                    <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                         Register as Farmer
                     </a>
 
@@ -593,7 +593,7 @@ $formData = isset($formData) ? $formData : [
                         •
                     </span>
 
-                    <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+                    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                         Courier Partner Registration
                     </a>
 
@@ -749,15 +749,15 @@ $formData = isset($formData) ? $formData : [
                 Company
             </h4>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 About Us
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Careers
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Press
             </a>
 
@@ -770,15 +770,15 @@ $formData = isset($formData) ? $formData : [
                 Support
             </h4>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Help Center
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Contact Us
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Shipping Info
             </a>
 
@@ -791,15 +791,15 @@ $formData = isset($formData) ? $formData : [
                 Legal
             </h4>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Privacy Policy
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Terms & Conditions
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Cookie Policy
             </a>
 
@@ -810,7 +810,7 @@ $formData = isset($formData) ? $formData : [
 </footer>
 
 
-<script src="/Harvestly/js/Buyer/buyer-registration.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/buyer-registration.js"></script>
 
 </body>
 

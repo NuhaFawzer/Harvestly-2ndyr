@@ -188,19 +188,9 @@ document.addEventListener("DOMContentLoaded", function () {
     |--------------------------------------------------------------------------
     */
 
-    if (notificationButton) {
+    // Notifications now use a normal PHP-generated link in the dashboard header.
+    // No JavaScript redirect is needed here.
 
-        notificationButton.addEventListener(
-            "click",
-            function () {
-
-                window.location.href =
-                    "../../Controller/Buyer/NotificationsController.php";
-
-            }
-        );
-
-    }
 
 
     /*

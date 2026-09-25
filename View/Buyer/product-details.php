@@ -10,7 +10,7 @@ $farmerImage = isset($farmerImage) ? $farmerImage : "";
 if (empty($product)) {
 
     header(
-        "Location: /Harvestly/Controller/Buyer/ProductController.php"
+        "Location: " . url('Controller/Buyer/ProductController.php')
     );
 
     exit;
@@ -45,11 +45,11 @@ if (empty($images)) {
 
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/product-details.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/product-details.css"
     >
 
 
-        <script src="/Harvestly/js/icon-fallback.js" defer></script>
+        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -66,24 +66,24 @@ if (empty($images)) {
 
 
         <a
-            href="/Harvestly/Controller/Buyer/DashboardController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
             class="logo"
         >
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:32px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:32px;width:auto;display:block;object-fit:contain;">
         </a>
 
 
         <div class="nav-links">
 
             <a
-                href="/Harvestly/Controller/Buyer/DashboardController.php"
+                href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
             >
                 Home
             </a>
 
 
             <a
-                href="/Harvestly/Controller/Buyer/ProductController.php"
+                href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"
                 class="active"
             >
                 Products
@@ -118,14 +118,14 @@ if (empty($images)) {
     >
 
         <a
-            href="/Harvestly/Controller/Buyer/DashboardController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
         >
             Home
         </a>
 
 
         <a
-            href="/Harvestly/Controller/Buyer/ProductController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"
         >
             Products
         </a>
@@ -148,7 +148,7 @@ if (empty($images)) {
     <nav class="breadcrumb">
 
         <a
-            href="/Harvestly/Controller/Buyer/DashboardController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
         >
             Home
         </a>
@@ -158,7 +158,7 @@ if (empty($images)) {
         </span>
 
         <a
-            href="/Harvestly/Controller/Buyer/ProductController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"
         >
             Products
         </a>
@@ -564,7 +564,7 @@ if (empty($images)) {
                 <a
                     id="addCartBtn"
                     class="add-cart-btn"
-                    href="/Harvestly/Controller/Buyer/ProductController.php?action=add_to_cart&id=<?php echo urlencode($product["id"]); ?>&qty=1&source=details"
+                    href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php?action=add_to_cart&id=<?php echo urlencode($product["id"]); ?>&qty=1&source=details"
                 >
 
                     <span class="material-symbols-outlined">
@@ -581,7 +581,7 @@ if (empty($images)) {
                 <a
                     id="buyNowBtn"
                     class="buy-now-btn"
-                    href="/Harvestly/Controller/Buyer/ProductController.php?action=add_to_cart&id=<?php echo urlencode($product["id"]); ?>&qty=1&source=details"
+                    href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php?action=add_to_cart&id=<?php echo urlencode($product["id"]); ?>&qty=1&source=details"
                 >
 
                     <span class="material-symbols-outlined">
@@ -996,11 +996,11 @@ if (empty($images)) {
 
         <div class="footer-column">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 About Harvestly
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Quick Links
             </a>
 
@@ -1009,11 +1009,11 @@ if (empty($images)) {
 
         <div class="footer-column">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Contact Us
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Privacy Policy
             </a>
 
@@ -1022,7 +1022,7 @@ if (empty($images)) {
 
         <div class="footer-column">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Terms of Service
             </a>
 
@@ -1034,7 +1034,7 @@ if (empty($images)) {
 
 
 <script
-    src="/Harvestly/js/Buyer/product-details.js"
+    src="<?= e(BASE_URL) ?>/js/Buyer/product-details.js"
 ></script>
 
 </body>

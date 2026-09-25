@@ -579,6 +579,99 @@ select {
 }
 
 
+
+/* =========================
+   COMPLAINT CRUD
+========================= */
+
+.complaint-history-item {
+    position: relative;
+}
+
+.complaint-history-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.complaint-crud-actions {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.complaint-edit-form {
+    display: grid;
+    gap: 12px;
+}
+
+.complaint-edit-form label {
+    display: grid;
+    gap: 6px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.complaint-edit-form select,
+.complaint-edit-form textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 10px 12px;
+    font: inherit;
+    resize: vertical;
+}
+
+.complaint-action-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.complaint-edit-btn,
+.complaint-delete-btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.complaint-edit-btn {
+    background: var(--primary);
+    color: #fff;
+}
+
+.complaint-edit-btn:hover {
+    background: var(--secondary);
+}
+
+.complaint-delete-form {
+    margin-top: 8px;
+}
+
+.complaint-delete-btn {
+    width: 100%;
+    background: #fff0ee;
+    color: var(--error);
+    border: 1px solid #f2b8b5;
+}
+
+.complaint-delete-btn:hover {
+    background: #fde2df;
+}
+
+.crud-note {
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
 /* =========================
    FILE UPLOAD
 ========================= */

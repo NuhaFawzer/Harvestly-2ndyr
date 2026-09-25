@@ -69,7 +69,7 @@ $cartCount =
             href="<?= e(buyerRoute('DashboardController.php')) ?>"
             class="logo"
         >
-            <img src="<?= e($baseUrl) ?>/assets/images/harvestly_logo.jpg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e($baseUrl) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" class="harvestly-brand-logo">
         </a>
 
 
@@ -147,16 +147,18 @@ $cartCount =
 
             <!-- NOTIFICATION -->
 
-            <button
-                type="button"
+            <a
+                href="<?= e(buyerRoute('NotificationsController.php')) ?>"
                 class="icon-button"
                 id="notificationButton"
                 title="Notifications"
+                aria-label="Notifications"
             >
 
-                <span class="material-symbols-outlined">
-                    notifications
-                </span>
+                <svg class="header-svg-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 13 4 15 3 16H21C20 15 18 13 18 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 20C10.5 21 11.2 21.5 12 21.5C12.8 21.5 13.5 21 14 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
 
 
                 <?php if ($notificationCount > 0): ?>
@@ -173,7 +175,7 @@ $cartCount =
 
                 <?php endif; ?>
 
-            </button>
+            </a>
 
 
 
@@ -185,9 +187,11 @@ $cartCount =
                 title="Shopping Cart"
             >
 
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
+                <svg class="header-svg-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 4H5L7.2 14.5C7.4 15.4 8.2 16 9.1 16H17.5C18.3 16 19 15.5 19.3 14.8L21 9H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9.5" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="17" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
 
 
                 <?php if ($cartCount > 0): ?>

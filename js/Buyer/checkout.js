@@ -1,3 +1,28 @@
+const HARVESTLY_BASE_URL = (() => {
+    const pathname = window.location.pathname || "";
+    const controllerMarker = "/Controller/";
+    const markerIndex = pathname.indexOf(controllerMarker);
+
+    if (markerIndex >= 0) {
+        return pathname.slice(0, markerIndex);
+    }
+
+    const segments = pathname.split("/").filter(Boolean);
+    const first = segments[0] || "";
+    const applicationFolders = new Set([
+        "Controller", "View", "buyer", "auth", "admin", "farmer", "courier", "config", "includes"
+    ]);
+
+    if (!first || applicationFolders.has(first)) {
+        return "";
+    }
+
+    return "/" + first;
+})();
+
+const buyerControllerUrl = (controller, query = "") =>
+    `${HARVESTLY_BASE_URL}/Controller/Buyer/${controller}${query ? `?${query}` : ""}`;
+
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -66,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmButton.innerHTML = '<span>Processing...</span><span class="material-symbols-outlined">hourglass_top</span>';
 
         try {
-            const response = await fetch("/Harvestly/Controller/Buyer/CheckoutController.php", {
+            const response = await fetch(buyerControllerUrl('CheckoutController.php'), {
                 method: "POST",
                 body: new FormData(form),
                 headers: { "X-Requested-With": "XMLHttpRequest" }
@@ -79,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (modal) {
                 modal.classList.remove("hidden");
             } else {
-                window.location.href = "/Harvestly/Controller/Buyer/OrdersController.php";
+                window.location.href = buyerControllerUrl('OrdersController.php');
             }
         } catch (error) {
             alert(error.message || "Something went wrong.");
@@ -89,6 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     viewOrders?.addEventListener("click", () => {
-        window.location.href = "/Harvestly/Controller/Buyer/OrdersController.php";
+        window.location.href = buyerControllerUrl('OrdersController.php');
     });
 });

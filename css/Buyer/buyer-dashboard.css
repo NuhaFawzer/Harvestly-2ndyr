@@ -1671,3 +1671,59 @@ button {
 .logout-link:hover {
     text-decoration: underline;
 }
+
+
+.harvestly-brand-logo {
+    width: 112px;
+    height: 36px;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 6px;
+}
+
+.header-svg-icon {
+    width: 22px;
+    height: 22px;
+    display: block;
+    color: currentColor;
+}
+
+.icon-button {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--primary);
+    transition: background .2s ease, transform .2s ease;
+}
+
+.icon-button:hover {
+    background: var(--surface-container-low);
+    transform: translateY(-1px);
+}
+
+.notification-badge,
+.cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.notification-badge { background: var(--error); }
+.cart-badge { background: var(--secondary); }

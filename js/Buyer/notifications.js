@@ -1,7 +1,32 @@
+const HARVESTLY_BASE_URL = (() => {
+    const pathname = window.location.pathname || "";
+    const controllerMarker = "/Controller/";
+    const markerIndex = pathname.indexOf(controllerMarker);
+
+    if (markerIndex >= 0) {
+        return pathname.slice(0, markerIndex);
+    }
+
+    const segments = pathname.split("/").filter(Boolean);
+    const first = segments[0] || "";
+    const applicationFolders = new Set([
+        "Controller", "View", "buyer", "auth", "admin", "farmer", "courier", "config", "includes"
+    ]);
+
+    if (!first || applicationFolders.has(first)) {
+        return "";
+    }
+
+    return "/" + first;
+})();
+
+const buyerControllerUrl = (controller, query = "") =>
+    `${HARVESTLY_BASE_URL}/Controller/Buyer/${controller}${query ? `?${query}` : ""}`;
+
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const controllerUrl = '/Harvestly/Controller/Buyer/NotificationsController.php';
+    const controllerUrl = buyerControllerUrl('NotificationsController.php');
     const notificationCards = [...document.querySelectorAll('.notification-card')];
     const filterTabs = [...document.querySelectorAll('.filter-tab')];
     const searchInput = document.getElementById('searchInput');
@@ -178,10 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    cartButton?.addEventListener('click', () => {
-        window.location.href = '/Harvestly/Controller/Buyer/CartController.php';
-    });
-
     notificationButton?.addEventListener('click', () => {
         window.location.reload();
     });
@@ -196,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     settingsButton?.addEventListener('click', () => {
-        window.location.href = '/Harvestly/Controller/Buyer/ProfileController.php';
+        window.location.href = buyerControllerUrl('ProfileController.php');
     });
 
     updateUnreadCount();

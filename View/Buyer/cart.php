@@ -46,10 +46,10 @@ foreach ($cartItems as $cartItem) {
 
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/cart.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/cart.css"
     >
 
-    <script src="/Harvestly/js/icon-fallback.js" defer></script>
+    <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -68,11 +68,11 @@ foreach ($cartItems as $cartItem) {
         <!-- LOGO -->
 
         <a
-            href="/Harvestly/Controller/Buyer/DashboardController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"
             class="brand"
         >
 
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:32px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" class="harvestly-brand-logo">
 
         </a>
 
@@ -80,7 +80,7 @@ foreach ($cartItems as $cartItem) {
         <!-- CONTINUE SHOPPING -->
 
         <a
-            href="/Harvestly/Controller/Buyer/ProductController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"
             class="continue-shopping"
         >
 
@@ -91,6 +91,22 @@ foreach ($cartItems as $cartItem) {
             Continue Shopping
 
         </a>
+
+        <div class="cart-header-actions">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/NotificationsController.php" class="cart-header-icon" title="Notifications" aria-label="Notifications">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M18 8C18 4.686 15.314 2 12 2C8.686 2 6 4.686 6 8C6 13 4 15 3 16H21C20 15 18 13 18 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 20C10.5 21 11.2 21.5 12 21.5C12.8 21.5 13.5 21 14 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php" class="cart-header-icon active" title="Shopping Cart" aria-label="Shopping Cart">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 4H5L7.2 14.5C7.4 15.4 8.2 16 9.1 16H17.5C18.3 16 19 15.5 19.3 14.8L21 9H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9.5" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="17" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
+                </svg>
+            </a>
+        </div>
 
     </div>
 
@@ -402,7 +418,7 @@ foreach ($cartItems as $cartItem) {
 
 
                     <a
-                        href="/Harvestly/Controller/Buyer/ProductController.php"
+                        href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"
                     >
                         Start Shopping
                     </a>
@@ -580,7 +596,7 @@ foreach ($cartItems as $cartItem) {
 <!-- JS -->
 
 <script
-    src="/Harvestly/js/Buyer/cart.js"
+    src="<?= e(BASE_URL) ?>/js/Buyer/cart.js"
 ></script>
 
 

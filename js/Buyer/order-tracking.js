@@ -1,4 +1,29 @@
-const HARVESTLY_BASE = document.body.dataset.baseUrl || '/Harvestly';
+const HARVESTLY_BASE_URL = (() => {
+    const pathname = window.location.pathname || "";
+    const controllerMarker = "/Controller/";
+    const markerIndex = pathname.indexOf(controllerMarker);
+
+    if (markerIndex >= 0) {
+        return pathname.slice(0, markerIndex);
+    }
+
+    const segments = pathname.split("/").filter(Boolean);
+    const first = segments[0] || "";
+    const applicationFolders = new Set([
+        "Controller", "View", "buyer", "auth", "admin", "farmer", "courier", "config", "includes"
+    ]);
+
+    if (!first || applicationFolders.has(first)) {
+        return "";
+    }
+
+    return "/" + first;
+})();
+
+const buyerControllerUrl = (controller, query = "") =>
+    `${HARVESTLY_BASE_URL}/Controller/Buyer/${controller}${query ? `?${query}` : ""}`;
+
+const HARVESTLY_BASE = document.body.dataset.baseUrl || HARVESTLY_BASE_URL;
 const ORDER_ID = document.body.dataset.orderId || '';
 window.ORDER_ID = ORDER_ID;
 
@@ -38,7 +63,7 @@ document.addEventListener(
 
                     confirmButton.disabled = true;
 
-                    fetch('/Harvestly/Controller/Buyer/OrderTrackingController.php', {
+                    fetch(buyerControllerUrl('OrderTrackingController.php'), {
                         method: 'POST',
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         body: new URLSearchParams({action:'received', order_id: ORDER_ID})
@@ -149,7 +174,7 @@ document.addEventListener(
                     formData.append('submit_complaint', '1');
                     formData.set('order_id', ORDER_ID);
                     try {
-                        const response = await fetch('/Harvestly/Controller/Buyer/FeedbackController.php', {
+                        const response = await fetch(buyerControllerUrl('FeedbackController.php'), {
                             method: 'POST',
                             body: formData,
                             headers: {'X-Requested-With': 'XMLHttpRequest'}

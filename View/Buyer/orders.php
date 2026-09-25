@@ -29,10 +29,10 @@ if (!isset($orders) || !is_array($orders)) {
     <!-- Orders CSS -->
     <link
         rel="stylesheet"
-        href="/Harvestly/css/Buyer/orders.css"
+        href="<?= e(BASE_URL) ?>/css/Buyer/orders.css"
     >
 
-    <script src="/Harvestly/js/icon-fallback.js" defer></script>
+    <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -51,11 +51,11 @@ if (!isset($orders) || !is_array($orders)) {
         <!-- LOGO -->
 
         <a
-            href="/Harvestly/Controller/Buyer/LandingController.php"
+            href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php"
             class="brand"
         >
 
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
         </a>
 
@@ -64,11 +64,11 @@ if (!isset($orders) || !is_array($orders)) {
 
         <nav class="desktop-nav">
 
-            <a href="/Harvestly/Controller/Buyer/LandingController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php">
                 Home
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/ProductController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">
                 Products
             </a>
 
@@ -106,11 +106,11 @@ if (!isset($orders) || !is_array($orders)) {
     class="mobile-nav"
 >
 
-    <a href="/Harvestly/Controller/Buyer/LandingController.php">
+    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php">
         Home
     </a>
 
-    <a href="/Harvestly/Controller/Buyer/ProductController.php">
+    <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">
         Products
     </a>
 
@@ -135,15 +135,15 @@ if (!isset($orders) || !is_array($orders)) {
 
             <ul>
 
-                <li><a href="/Harvestly/Controller/Buyer/DashboardController.php"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/ProductController.php"><span class="material-symbols-outlined">storefront</span><span>Browse Products</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/CartController.php"><span class="material-symbols-outlined">shopping_cart</span><span>Cart</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/OrdersController.php" class="active"><span class="material-symbols-outlined">receipt_long</span><span>My Orders</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">rate_review</span><span>Reviews</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">report_problem</span><span>Complaints</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/NotificationsController.php"><span class="material-symbols-outlined">notifications</span><span>Notifications</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/ProfileController.php"><span class="material-symbols-outlined">person</span><span>Profile</span></a></li>
-                <li><a href="/Harvestly/Controller/Buyer/LogoutController.php"><span class="material-symbols-outlined">logout</span><span>Logout</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php"><span class="material-symbols-outlined">storefront</span><span>Browse Products</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php"><span class="material-symbols-outlined">shopping_cart</span><span>Cart</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/OrdersController.php" class="active"><span class="material-symbols-outlined">receipt_long</span><span>My Orders</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">rate_review</span><span>Reviews</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"><span class="material-symbols-outlined">report_problem</span><span>Complaints</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/NotificationsController.php"><span class="material-symbols-outlined">notifications</span><span>Notifications</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProfileController.php"><span class="material-symbols-outlined">person</span><span>Profile</span></a></li>
+                <li><a href="<?= e(BASE_URL) ?>/Controller/Buyer/LogoutController.php"><span class="material-symbols-outlined">logout</span><span>Logout</span></a></li>
 
             </ul>
 
@@ -432,11 +432,11 @@ if (!isset($orders) || !is_array($orders)) {
                 Company
             </h4>
 
-            <a href="/Harvestly/Controller/Buyer/LandingController.php#about">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/LandingController.php#about">
                 About Harvestly
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Contact Us
             </a>
 
@@ -452,11 +452,11 @@ if (!isset($orders) || !is_array($orders)) {
                 Resources
             </h4>
 
-            <a href="/Harvestly/Controller/Buyer/ProductController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">
                 Products
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php#categories">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php#categories">
                 Categories
             </a>
 
@@ -472,11 +472,11 @@ if (!isset($orders) || !is_array($orders)) {
                 Legal
             </h4>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Privacy Policy
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Terms of Service
             </a>
 
@@ -493,7 +493,7 @@ if (!isset($orders) || !is_array($orders)) {
      JAVASCRIPT
 ===================================================== -->
 
-<script src="/Harvestly/js/Buyer/orders.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/orders.js"></script>
 
 
 </body>

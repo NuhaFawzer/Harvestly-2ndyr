@@ -74,7 +74,7 @@ if ($initials === '') { $initials = 'FA'; }
                 <?php foreach ($products as $product): ?>
                     <article class="product-card">
                         <div class="product-image-wrap">
-                            <img src="<?php echo e($product['image'] ?: '/Harvestly/assets/coconut-sri-lanka.jpeg'); ?>" alt="<?php echo e($product['name']); ?>">
+                            <img src="<?php echo e($product['image'] ?: url('assets/coconut-sri-lanka.jpeg')); ?>" alt="<?php echo e($product['name']); ?>">
                             <?php if (!empty($product['organic'])): ?><span class="badge organic">Organic</span><?php endif; ?>
                             <?php if (!empty($product['fresh'])): ?><span class="badge fresh">Fresh</span><?php endif; ?>
                         </div>

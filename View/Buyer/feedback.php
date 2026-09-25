@@ -19,9 +19,9 @@ $complaintMessage = $complaintMessage ?? '';
     <title>Harvestly - Order Feedback</title>
 
     <link rel="stylesheet"
-          href="/Harvestly/css/Buyer/feedback.css">
+          href="<?= e(BASE_URL) ?>/css/Buyer/feedback.css">
 
-    <script src="/Harvestly/js/icon-fallback.js" defer></script>
+    <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -35,18 +35,18 @@ $complaintMessage = $complaintMessage ?? '';
 
     <div class="navbar-container">
 
-        <a href="/Harvestly/Controller/Buyer/DashboardController.php" class="logo">
+        <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php" class="logo">
 
-            <img src="/Harvestly/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
         </a>
 
 
         <nav class="desktop-nav">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">Home</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">Home</a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">Products</a>
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">Products</a>
 
         </nav>
 
@@ -73,9 +73,9 @@ $complaintMessage = $complaintMessage ?? '';
         class="mobile-nav"
         id="mobileNav">
 
-        <a href="/Harvestly/Controller/Buyer/DashboardController.php">Home</a>
+        <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">Home</a>
 
-        <a href="/Harvestly/Controller/Buyer/ProductController.php">Products</a>
+        <a href="<?= e(BASE_URL) ?>/Controller/Buyer/ProductController.php">Products</a>
 
     </nav>
 
@@ -97,8 +97,7 @@ $complaintMessage = $complaintMessage ?? '';
         </h1>
 
         <p>
-            Help us maintain quality by sharing your experience for
-            Order #<?= htmlspecialchars($orderId) ?>.
+            Help us maintain quality by sharing your experience for Order <?= htmlspecialchars($orderId) ?>.
         </p>
 
     </section>
@@ -131,7 +130,7 @@ $complaintMessage = $complaintMessage ?? '';
 
 
             <form method="POST"
-                  action="/Harvestly/Controller/Buyer/FeedbackController.php"
+                  action="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"
                   id="reviewForm">
 
                 <div class="form-group review-order-picker">
@@ -347,8 +346,7 @@ $complaintMessage = $complaintMessage ?? '';
 
             <p class="complaint-description">
 
-                If something went wrong with your order,
-                please let us know so we can make it right.
+                Please describe the issue in one clear sentence so our team can review your complaint quickly.
 
             </p>
 
@@ -366,7 +364,7 @@ $complaintMessage = $complaintMessage ?? '';
 
             <form
                 method="POST"
-                action="/Harvestly/Controller/Buyer/FeedbackController.php"
+                action="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"
                 enctype="multipart/form-data"
                 id="complaintForm">
 
@@ -425,14 +423,14 @@ $complaintMessage = $complaintMessage ?? '';
                 <div class="form-group">
 
                     <label for="details">
-                        Details
+                        Description
                     </label>
 
                     <textarea
                         name="details"
                         id="details"
                         rows="5"
-                        placeholder="Please describe the issue in detail..."></textarea>
+                        placeholder="Please describe the issue clearly in one sentence..."></textarea>
 
                 </div>
 
@@ -517,11 +515,58 @@ $complaintMessage = $complaintMessage ?? '';
                 <p class="empty-history">No complaints submitted yet.</p>
             <?php else: ?>
                 <?php foreach ($complaints as $complaint): ?>
-                    <article class="history-item">
-                        <div><strong><?= htmlspecialchars($complaint['order_number'] ?? 'Order') ?></strong><span class="status-pill"><?= htmlspecialchars($complaint['status'] ?? 'Open') ?></span></div>
-                        <p><strong><?= htmlspecialchars($complaint['category']) ?></strong></p>
-                        <p><?= htmlspecialchars($complaint['details']) ?></p>
+                    <?php
+                        $complaintStatus = strtoupper((string)($complaint['status'] ?? 'OPEN'));
+                        $isEditable = $complaintStatus === 'OPEN'
+                            && !empty($complaint['created_at'])
+                            && strtotime($complaint['created_at']) >= strtotime('-24 hours');
+                        $complaintId = (int)($complaint['id'] ?? 0);
+                        $complaintCategory = (string)($complaint['category'] ?? 'Other');
+                        $complaintDetails = (string)($complaint['details'] ?? '');
+                    ?>
+                    <article class="history-item complaint-history-item">
+                        <div class="complaint-history-top">
+                            <strong>CMP-<?= str_pad((string)$complaintId, 4, '0', STR_PAD_LEFT) ?></strong>
+                            <span class="status-pill"><?= htmlspecialchars($complaintStatus) ?></span>
+                        </div>
+
+                        <p><strong><?= htmlspecialchars($complaintCategory) ?></strong></p>
+                        <p><?= htmlspecialchars($complaintDetails) ?></p>
                         <small><?= htmlspecialchars(date('M d, Y H:i', strtotime($complaint['created_at']))) ?></small>
+
+                        <?php if ($isEditable): ?>
+                            <div class="complaint-crud-actions">
+                                <form method="POST" class="complaint-edit-form">
+                                    <input type="hidden" name="complaint_id" value="<?= $complaintId ?>">
+
+                                    <label>
+                                        Category
+                                        <select name="category" required>
+                                            <?php foreach (['Product Quality', 'Damaged Product', 'Wrong Product', 'Incorrect Quantity', 'Delivery Issue', 'Other'] as $option): ?>
+                                                <option value="<?= htmlspecialchars($option) ?>" <?= $complaintCategory === $option ? 'selected' : '' ?>>
+                                                    <?= htmlspecialchars($option) ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </label>
+
+                                    <label>
+                                        Description
+                                        <textarea name="details" rows="3" maxlength="1000" required><?= htmlspecialchars($complaintDetails) ?></textarea>
+                                    </label>
+
+                                    <div class="complaint-action-row">
+                                        <button type="submit" name="update_complaint" class="complaint-edit-btn">Update</button>
+                                    </div>
+                                </form>
+
+                                <form method="POST" class="complaint-delete-form" onsubmit="return confirm('Delete this complaint?');">
+                                    <input type="hidden" name="complaint_id" value="<?= $complaintId ?>">
+                                    <button type="submit" name="delete_complaint" class="complaint-delete-btn">Delete</button>
+                                </form>
+                            </div>
+                            <small class="crud-note">Open complaints can be updated or deleted within 24 hours.</small>
+                        <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
             <?php endif; ?>
@@ -557,11 +602,11 @@ $complaintMessage = $complaintMessage ?? '';
 
         <div class="footer-links">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 About Harvestly
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Quick Links
             </a>
 
@@ -570,15 +615,15 @@ $complaintMessage = $complaintMessage ?? '';
 
         <div class="footer-links">
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Contact Us
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Privacy Policy
             </a>
 
-            <a href="/Harvestly/Controller/Buyer/DashboardController.php">
+            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php">
                 Terms of Service
             </a>
 
@@ -589,7 +634,7 @@ $complaintMessage = $complaintMessage ?? '';
 </footer>
 
 
-<script src="/Harvestly/js/Buyer/feedback.js"></script>
+<script src="<?= e(BASE_URL) ?>/js/Buyer/feedback.js"></script>
 
 </body>
 
