@@ -52,7 +52,9 @@ if ($buyerJoined !== '') {
         href="<?= e(BASE_URL) ?>/css/Buyer/buyer-profile.css"
     >
 
-        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
+            <link rel="stylesheet" href="<?= e(BASE_URL) ?>/css/Buyer/buyer-header-polish.css">
+
+<script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -65,7 +67,7 @@ if ($buyerJoined !== '') {
 
         <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php" class="brand">
 
-            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
         </a>
 
@@ -85,23 +87,7 @@ if ($buyerJoined !== '') {
 
         <div class="nav-actions">
 
-            <a href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php" class="icon-btn">
-
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
-
-                <span class="cart-count">3</span>
-
-            </a>
-
-            <button class="icon-btn">
-
-                <span class="material-symbols-outlined">
-                    notifications
-                </span>
-
-            </button>
+            <?php include __DIR__ . '/header-icons.php'; ?>
 
             <div class="user-menu">
 

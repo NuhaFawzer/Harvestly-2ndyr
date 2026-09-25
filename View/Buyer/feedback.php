@@ -21,7 +21,9 @@ $complaintMessage = $complaintMessage ?? '';
     <link rel="stylesheet"
           href="<?= e(BASE_URL) ?>/css/Buyer/feedback.css">
 
-    <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
+        <link rel="stylesheet" href="<?= e(BASE_URL) ?>/css/Buyer/buyer-header-polish.css">
+
+<script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -37,7 +39,7 @@ $complaintMessage = $complaintMessage ?? '';
 
         <a href="<?= e(BASE_URL) ?>/Controller/Buyer/DashboardController.php" class="logo">
 
-            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
         </a>
 
@@ -52,6 +54,8 @@ $complaintMessage = $complaintMessage ?? '';
 
 
         <div class="nav-actions">
+
+            <?php include __DIR__ . '/header-icons.php'; ?>
 
             <button
                 type="button"

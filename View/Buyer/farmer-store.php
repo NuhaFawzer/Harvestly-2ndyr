@@ -14,20 +14,22 @@ if ($initials === '') { $initials = 'FA'; }
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo e($name); ?> - Farmer Store | Harvestly</title>
     <link rel="stylesheet" href="<?php echo e($baseUrl); ?>/css/Buyer/farmer-store.css">
-        <script src="<?php echo e($baseUrl); ?>/js/icon-fallback.js" defer></script>
+            <link rel="stylesheet" href="<?= e($baseUrl) ?>/css/Buyer/buyer-header-polish.css">
+
+<script src="<?php echo e($baseUrl); ?>/js/icon-fallback.js" defer></script>
 </head>
 <body>
 <nav class="navbar">
     <div class="navbar-inner">
         <a href="<?php echo e(buyerRoute('DashboardController.php')); ?>" class="logo">
-            <img src="<?php echo e($baseUrl); ?>/assets/images/harvestly_logo.jpg" alt="Harvestly">
+            <img src="<?php echo e($baseUrl); ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly">
         </a>
         <div class="nav-links">
             <a href="<?php echo e(buyerRoute('DashboardController.php')); ?>">Home</a>
             <a class="active" href="<?php echo e(buyerRoute('ProductController.php')); ?>">Products</a>
         </div>
         <div class="nav-actions">
-            <a href="<?php echo e(buyerRoute('CartController.php')); ?>" class="cart-link"><span class="material-symbols-outlined">shopping_cart</span> Cart</a>
+            <?php include __DIR__ . '/header-icons.php'; ?>
             <a href="<?php echo e(buyerRoute('ProfileController.php')); ?>" class="profile-link"><span class="material-symbols-outlined">person</span></a>
         </div>
     </div>

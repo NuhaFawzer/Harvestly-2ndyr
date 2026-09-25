@@ -59,7 +59,9 @@ $growingOptions = $growingOptions ?? ["All Growing Methods", "Organic", "Convent
     >
 
 
-        <script src="<?= e($baseUrl) ?>/js/icon-fallback.js" defer></script>
+            <link rel="stylesheet" href="<?= e($baseUrl) ?>/css/Buyer/buyer-header-polish.css">
+
+<script src="<?= e($baseUrl) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 
@@ -79,7 +81,7 @@ $growingOptions = $growingOptions ?? ["All Growing Methods", "Organic", "Convent
             href="<?= e(buyerRoute('DashboardController.php')) ?>"
             class="logo"
         >
-            <img src="<?= e($baseUrl) ?>/assets/images/harvestly_logo.jpg" alt="Harvestly" style="height:32px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e($baseUrl) ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly" style="height:32px;width:auto;display:block;object-fit:contain;">
         </a>
 
 
@@ -104,6 +106,8 @@ $growingOptions = $growingOptions ?? ["All Growing Methods", "Organic", "Convent
 
 
         <div class="nav-actions">
+
+            <?php include __DIR__ . '/header-icons.php'; ?>
 
             <button
                 type="button"

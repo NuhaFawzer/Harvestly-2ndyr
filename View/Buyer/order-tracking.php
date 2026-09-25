@@ -20,7 +20,9 @@
         href="<?= $baseUrl ?>/css/Buyer/order-tracking.css"
     >
 
-        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
+            <link rel="stylesheet" href="<?= e(BASE_URL) ?>/css/Buyer/buyer-header-polish.css">
+
+<script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body data-base-url="<?= htmlspecialchars($baseUrl, ENT_QUOTES) ?>" data-order-id="<?= htmlspecialchars($tracking['id'] ?? '', ENT_QUOTES) ?>">
@@ -50,11 +52,11 @@
             class="logo"
         >
 
-            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
         </a>
 
-        <div class="header-space"></div>
+        <?php include __DIR__ . '/header-icons.php'; ?>
 
     </header>
 
@@ -111,12 +113,12 @@
         class="logo"
     >
 
-        <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
+        <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly" style="height:34px;width:auto;display:block;object-fit:contain;">
 
     </a>
 
 
-    <div class="header-space"></div>
+    <?php include __DIR__ . '/header-icons.php'; ?>
 
 </header>
 

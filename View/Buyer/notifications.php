@@ -28,7 +28,9 @@ $totalDeliveries = $totalDeliveries ?? 0;
 
     <!-- Fonts -->
     <!-- Material Icons -->
-        <script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
+            <link rel="stylesheet" href="<?= e(BASE_URL) ?>/css/Buyer/buyer-header-polish.css">
+
+<script src="<?= e(BASE_URL) ?>/js/icon-fallback.js" defer></script>
 </head>
 
 <body>
@@ -50,7 +52,7 @@ $totalDeliveries = $totalDeliveries ?? 0;
             class="brand"
         >
 
-            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo.jpeg" alt="Harvestly" class="harvestly-brand-logo">
+            <img src="<?= e(BASE_URL) ?>/assets/harvestly-logo-horizontal.png" alt="Harvestly" class="harvestly-brand-logo">
 
         </a>
 
@@ -92,41 +94,7 @@ $totalDeliveries = $totalDeliveries ?? 0;
             </div>
 
 
-            <!-- NOTIFICATION -->
-
-            <button
-                class="header-icon notification-button active"
-                id="notificationButton"
-                type="button"
-            >
-
-                <span class="material-symbols-outlined filled-icon">
-                    notifications
-                </span>
-
-                <?php if ($unreadNotifications > 0): ?>
-                    <span class="notification-dot notification-count-badge">
-                        <?php echo $unreadNotifications > 99 ? '99+' : $unreadNotifications; ?>
-                    </span>
-                <?php endif; ?>
-
-            </button>
-
-
-            <!-- CART -->
-
-            <a
-                href="<?= e(BASE_URL) ?>/Controller/Buyer/CartController.php"
-                class="header-icon"
-                id="cartButton"
-                aria-label="Shopping Cart"
-            >
-                <svg class="header-svg-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M3 4H5L7.2 14.5C7.4 15.4 8.2 16 9.1 16H17.5C18.3 16 19 15.5 19.3 14.8L21 9H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="9.5" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
-                    <circle cx="17" cy="20" r="1.5" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-            </a>
+            <?php include __DIR__ . '/header-icons.php'; ?>
 
 
             <!-- AUTH -->
