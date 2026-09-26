@@ -712,16 +712,22 @@ if (empty($images)) {
 
                 <div class="farmer-buttons">
 
-                    <a
-                        href="<?php echo htmlspecialchars(buyerRoute('FarmerStoreController.php', 'farmer=' . rawurlencode($product['farmer']))); ?>"
-                        class="view-store"
-                    >
-                        View Store
-                    </a>
+<a
+    href="<?= e(buyerRoute(
+        'FarmerStoreController.php',
+        'farmer_id=' . (int)($product['farmer_id'] ?? 0)
+    )) ?>"
+    class="view-store"
+>
+    View Store
+</a>
 
 
                     <a
-                        href="<?php echo htmlspecialchars(buyerRoute('FarmerContactController.php', 'farmer=' . rawurlencode($product['farmer']))); ?>"
+                        href="<?= e(buyerRoute(
+                            'FarmerContactController.php',
+                            'farmer_id=' . (int)($product['farmer_id'] ?? 0)
+                        )) ?>"
                         class="contact-btn"
                     >
 
