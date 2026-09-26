@@ -496,21 +496,302 @@ $complaintMessage = $complaintMessage ?? '';
     </div>
 
     <section class="history-grid">
+
+        <!-- =========================================================
+             MY REVIEWS - REVIEW CRUD
+             CREATE  = Submit Review form above
+             READ    = Display saved reviews here
+             UPDATE  = Edit Review
+             DELETE  = Delete Review
+        ========================================================== -->
+
         <div class="history-card">
-            <div class="history-heading"><h2>My Reviews</h2><span><?= count($reviews ?? []) ?></span></div>
+
+            <div class="history-heading">
+                <h2>My Reviews</h2>
+                <span><?= count($reviews ?? []) ?></span>
+            </div>
+
             <?php if (empty($reviews)): ?>
-                <p class="empty-history">No reviews submitted yet.</p>
+
+                <p class="empty-history">
+                    No reviews submitted yet.
+                </p>
+
             <?php else: ?>
+
                 <?php foreach ($reviews as $review): ?>
+
+                    <?php
+                    $reviewId = (int)($review['id'] ?? 0);
+
+                    $farmerRating =
+                        (int)($review['farmer_rating'] ?? 0);
+
+                    $deliveryRating =
+                        (int)($review['delivery_rating'] ?? 0);
+
+                    $qualityComment =
+                        (string)($review['quality_comment'] ?? '');
+
+                    $deliveryComment =
+                        (string)($review['delivery_comment'] ?? '');
+
+                    $reviewDate =
+                        !empty($review['created_at'])
+                            ? date(
+                                'M d, Y',
+                                strtotime($review['created_at'])
+                            )
+                            : '';
+                    ?>
+
                     <article class="history-item">
-                        <div><strong><?= htmlspecialchars($review['order_number'] ?? 'Order') ?></strong><span class="status-pill"><?= htmlspecialchars($review['status'] ?? 'Pending') ?></span></div>
-                        <div class="rating-line">Farmer: <?= str_repeat('★', (int)$review['farmer_rating']) ?> &nbsp; Delivery: <?= str_repeat('★', (int)$review['delivery_rating']) ?></div>
-                        <?php if (!empty($review['quality_comment'])): ?><p><?= htmlspecialchars($review['quality_comment']) ?></p><?php endif; ?>
-                        <?php if (!empty($review['delivery_comment'])): ?><p><?= htmlspecialchars($review['delivery_comment']) ?></p><?php endif; ?>
-                        <small><?= htmlspecialchars(date('M d, Y', strtotime($review['created_at']))) ?></small>
+
+                        <!-- REVIEW - READ -->
+
+                        <div>
+                            <strong>
+                                <?= htmlspecialchars(
+                                    $review['order_number'] ?? 'Order'
+                                ) ?>
+                            </strong>
+
+                            <span class="status-pill">
+                                <?= htmlspecialchars(
+                                    $review['status'] ?? 'Submitted'
+                                ) ?>
+                            </span>
+                        </div>
+
+
+                        <div class="rating-line">
+
+                            Farmer:
+
+                            <?= str_repeat(
+                                '★',
+                                max(0, min(5, $farmerRating))
+                            ) ?>
+
+                            &nbsp;&nbsp;
+
+                            Delivery:
+
+                            <?= str_repeat(
+                                '★',
+                                max(0, min(5, $deliveryRating))
+                            ) ?>
+
+                        </div>
+
+
+                        <?php if ($qualityComment !== ''): ?>
+
+                            <p>
+                                <?= htmlspecialchars(
+                                    $qualityComment
+                                ) ?>
+                            </p>
+
+                        <?php endif; ?>
+
+
+                        <?php if ($deliveryComment !== ''): ?>
+
+                            <p>
+                                <?= htmlspecialchars(
+                                    $deliveryComment
+                                ) ?>
+                            </p>
+
+                        <?php endif; ?>
+
+
+                        <?php if ($reviewDate !== ''): ?>
+
+                            <small>
+                                <?= htmlspecialchars($reviewDate) ?>
+                            </small>
+
+                        <?php endif; ?>
+
+
+                        <?php if ($reviewId > 0): ?>
+
+                            <!-- =================================================
+                                 REVIEW - UPDATE
+                            ================================================== -->
+
+                            <details
+                                style="
+                                    margin-top:12px;
+                                "
+                            >
+
+                                <summary
+                                    style="
+                                        cursor:pointer;
+                                        font-size:12px;
+                                        font-weight:600;
+                                    "
+                                >
+                                    Edit Review
+                                </summary>
+
+
+                                <form
+                                    method="POST"
+                                    action="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"
+                                    style="margin-top:10px;"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="review_id"
+                                        value="<?= $reviewId ?>"
+                                    >
+
+
+                                    <div
+                                        style="
+                                            margin-bottom:10px;
+                                        "
+                                    >
+
+                                        <label
+                                            style="
+                                                display:block;
+                                                font-size:12px;
+                                                font-weight:600;
+                                                margin-bottom:5px;
+                                            "
+                                        >
+                                            Farmer Rating
+                                        </label>
+
+
+                                        <select
+                                            name="farmer_rating"
+                                            required
+                                            style="
+                                                width:100%;
+                                                padding:8px;
+                                                border:1px solid #ccc;
+                                                border-radius:6px;
+                                                box-sizing:border-box;
+                                            "
+                                        >
+
+                                            <?php for ($star = 1; $star <= 5; $star++): ?>
+
+                                                <option
+                                                    value="<?= $star ?>"
+                                                    <?= $farmerRating === $star
+                                                        ? 'selected'
+                                                        : '' ?>
+                                                >
+                                                    <?= $star ?>
+                                                    <?= $star === 1 ? 'Star' : 'Stars' ?>
+                                                </option>
+
+                                            <?php endfor; ?>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div
+                                        style="
+                                            margin-bottom:10px;
+                                        "
+                                    >
+
+                                        <label
+                                            style="
+                                                display:block;
+                                                font-size:12px;
+                                                font-weight:600;
+                                                margin-bottom:5px;
+                                            "
+                                        >
+                                            Review
+                                        </label>
+
+
+                                        <textarea
+                                            name="quality_comment"
+                                            rows="3"
+                                            maxlength="2000"
+                                            style="
+                                                width:100%;
+                                                box-sizing:border-box;
+                                                padding:8px;
+                                                border:1px solid #ccc;
+                                                border-radius:6px;
+                                                resize:vertical;
+                                            "
+                                        ><?= htmlspecialchars($qualityComment) ?></textarea>
+
+                                    </div>
+
+
+                                    <button
+                                        type="submit"
+                                        name="update_review"
+                                        class="complaint-edit-btn"
+                                    >
+                                        Update Review
+                                    </button>
+
+                                </form>
+
+                            </details>
+
+
+                            <!-- =================================================
+                                 REVIEW - DELETE
+                            ================================================== -->
+
+                            <form
+                                method="POST"
+                                action="<?= e(BASE_URL) ?>/Controller/Buyer/FeedbackController.php"
+                                style="
+                                    margin-top:8px;
+                                "
+                                onsubmit="
+                                    return confirm(
+                                        'Are you sure you want to delete this review?'
+                                    );
+                                "
+                            >
+
+                                <input
+                                    type="hidden"
+                                    name="review_id"
+                                    value="<?= $reviewId ?>"
+                                >
+
+
+                                <button
+                                    type="submit"
+                                    name="delete_review"
+                                    class="complaint-delete-btn"
+                                >
+                                    Delete Review
+                                </button>
+
+                            </form>
+
+                        <?php endif; ?>
+
                     </article>
+
                 <?php endforeach; ?>
+
             <?php endif; ?>
+
         </div>
 
         <div class="history-card">
